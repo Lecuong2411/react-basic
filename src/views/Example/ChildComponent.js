@@ -1,4 +1,5 @@
 import React from "react";
+import './Demo.scss'
 
 class ChildComponent extends React.Component {
     state = {
@@ -15,6 +16,7 @@ class ChildComponent extends React.Component {
        this.props.deleteAJob(job)
     }
 
+
     render() {
         let { arrJobs } = this.props
         let { showJobs } = this.state
@@ -25,7 +27,7 @@ class ChildComponent extends React.Component {
             <>
                 {showJobs === false ?
                     <div>
-                        <button onClick={() => this.handleShowHide()}>Show</button>
+                        <button className="btn-show" onClick={() => this.handleShowHide()}>Show</button>
                     </div>
                :
                     <>
@@ -53,6 +55,9 @@ class ChildComponent extends React.Component {
             </>
         )
     }
+
+
+
 }
 
 // const ChildComponent = (props) => {
