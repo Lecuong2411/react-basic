@@ -70,6 +70,8 @@ class ListTodo extends React.Component {
         let isEntyObj = Object.keys(edittodo).length === 0
         console.log(isEntyObj)
         return (
+            <>
+            <div>Todo App</div>
             <div className="list-todo-container">
                 <AddTodo addNewTodo={this.addNewTodo} />
                 <div className="list-todo-content">
@@ -95,6 +97,7 @@ class ListTodo extends React.Component {
                     }
                 </div>
             </div>
+            </>
         )
     }
 }
