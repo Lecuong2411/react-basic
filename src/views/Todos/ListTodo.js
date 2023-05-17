@@ -41,7 +41,6 @@ class ListTodo extends React.Component {
         this.setState({
             edittodo: editTodoCoppy
         })
-
     }
 
     handleSaveTodo = () =>{
@@ -53,7 +52,7 @@ class ListTodo extends React.Component {
             ListTodos : listTodosCoppy,
             edittodo :{}
          })
-        
+         toast.success("Sửa thành công!");
     }
 
     handleDelete = (todo) => {
