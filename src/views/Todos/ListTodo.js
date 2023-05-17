@@ -27,7 +27,6 @@ class ListTodo extends React.Component {
 
 
     handleEditTodo = (todo) => {
-
         this.setState({
             edittodo: todo
         })
@@ -35,13 +34,28 @@ class ListTodo extends React.Component {
     }
 
     handleOnchageEditTodo = (event) => {
-        let editTodoCoppy = { ...this.setState.editTodo };
+
+        console.log({ ...this.state })
+        var editTodoCoppy = { ...this.state.edittodo };
         editTodoCoppy.title = event.target.value;
         this.setState({
             edittodo: editTodoCoppy
         })
 
     }
+
+    handleSaveTodo = () =>{
+        let listTodosCoppy= [...this.state.ListTodos];
+        let edittodoCoppy= {...this.state.edittodo}
+        let objIndex= listTodosCoppy.findIndex(item=> item.id === edittodoCoppy.id )
+         listTodosCoppy[objIndex].title= edittodoCoppy.title;
+         this.setState({
+            ListTodos : listTodosCoppy,
+            edittodo :{}
+         })
+        
+    }
+
     handleDelete = (todo) => {
         let currentTodos = this.state.ListTodos
         currentTodos = currentTodos.filter(item => item.id !== todo.id)
@@ -66,15 +80,13 @@ class ListTodo extends React.Component {
 
                                 <div className="todo-child" key={item.id}>
 
-                                    {isEntyObj === true ? <span> {index + 1} - {item.title}</span> :
-                                        <>
-                                            {item.id === edittodo.id ?
-                                                <span> {index + 1} - <input onChange={(event) => this.handleOnchageEditTodo(event)} value={edittodo.title} /></span> :
-                                                <span> {index + 1} - {item.title}</span>
-                                            }
-                                        </>
+                                    {item.id === edittodo.id && isEntyObj ===false ? <span> {index + 1} - <input onChange={(event) => this.handleOnchageEditTodo(event)} value={edittodo.title} /></span> :
+                                        <span> {index + 1} - {item.title}</span>
                                     }
-                                    <button className="edit" onClick={() => this.handleEditTodo(item)}>Edit</button>
+                                       {item.id === edittodo.id && isEntyObj ===false  ? <button className="save" onClick={() => this.handleSaveTodo()}>Save</button>:
+                                        <button className="edit" onClick={() => this.handleEditTodo(item)}>Edit</button>
+                                    }
+                                   
                                     <button className="delete"
                                         onClick={() => this.handleDelete(item)}
                                     >Delete</button>
