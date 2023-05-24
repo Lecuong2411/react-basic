@@ -11,6 +11,7 @@ render() {
          <NavLink  to="/" >Home</NavLink>
          <NavLink to="/Todo" >Todo</NavLink>
          <NavLink to="/My" >MyComponent</NavLink>
+         <NavLink to="/User" >User</NavLink>
       </div>
     )
 }
