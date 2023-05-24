@@ -2,15 +2,14 @@ import logo from './logo.svg';
 import './App.scss';
 import MyComponent from './Example/MyComponent';
 import ListTodo from './Todos/ListTodo';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from './Example/Home';
 import {
   BrowserRouter,
   Routes,
-  Route,
-  Link,
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -30,8 +29,6 @@ function App() {
               <Route path="/My" element={<MyComponent />} />
             </Routes>
     
-
-
 
 
 
