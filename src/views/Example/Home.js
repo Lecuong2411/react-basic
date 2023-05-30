@@ -1,16 +1,14 @@
 import React from "react";
 import Color from "../HOC/Color";
 import imgae from '../../assets/images/fate.jpg';
+import { connect } from "react-redux";
+
 
 class Home extends React.Component{
-  componentDidMount(){
-    setTimeout(()=>{
-          console.log('>>> prop', this.props);
-    },3000)
-  }
 
 
     render(){
+      console.log('>>>>> check props dataRedux',this.props.dataRudux)
         return(
           <>
             <div>Wellcome from Trái đất</div>
@@ -24,4 +22,10 @@ class Home extends React.Component{
     }
 }
 
-export default Color(Home)
+const mapStateToProps= (state)=>{
+ return {
+  dataRudux: state.users
+ }
+}
+
+export default connect(mapStateToProps)(Color(Home))
