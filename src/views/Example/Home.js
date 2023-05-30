@@ -1,6 +1,6 @@
 import React from "react";
 import Color from "../HOC/Color";
-
+import imgae from '../../assets/images/fate.jpg';
 
 class Home extends React.Component{
   componentDidMount(){
@@ -12,7 +12,13 @@ class Home extends React.Component{
 
     render(){
         return(
+          <>
             <div>Wellcome from Trái đất</div>
+            <div>
+              <img width="470px" src={imgae} alt="" />
+            </div>
+          </>
+          
             
         )
     }

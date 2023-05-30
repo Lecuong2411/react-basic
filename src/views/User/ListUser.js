@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import './ListUser.scss'
+import { Link } from "react-router-dom";
 
 class ListUser extends React.Component {
 
@@ -14,9 +15,16 @@ class ListUser extends React.Component {
             ListUser: res && res.data && res.data.data ? res.data.data : []
         })
     }
+
+
     render() {
         let listUsers = this.state.ListUser;
         console.log(listUsers)
+        const linkStyle = {
+            margin: "1rem",
+            textDecoration: "none",
+            color: 'white'
+        }
         return (
             <div className="list-user-container">
                 <div className="title">
@@ -26,10 +34,11 @@ class ListUser extends React.Component {
                     listUsers.map((item, index) => {
                         return (
                             <div className="list-user-content">
-                                <div className="child" key={item.id}>
-                                    {index+1} - {item.first_name} - {item.last_name}
+                                <div className="child" key={item.id} >
+
+                                    <Link  style={linkStyle} to={"/User/" + item.id}>{index + 1} - {item.first_name} - {item.last_name}</Link>
                                 </div>
-                            
+
                             </div>
                         )
                     })
