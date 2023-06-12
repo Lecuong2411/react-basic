@@ -31,7 +31,7 @@ class MyComponent extends React.Component {
         })
      }
      componentDidUpdate(prevProps, prevState){
-        console.log('>> run conponent did update:', 'prev state: ', prevState , 'current state', this.state)
+        console.log('>> run conponent did update:', 'prev state: ', prevState , 'current state', this.state,prevProps)
     }
 
     componentDidMount(){

@@ -12,12 +12,12 @@ class ChildComponent extends React.Component {
         })
     }
     handleOnclickDelete=(job)=>{
-       console.log('>>>',job)
        this.props.deleteAJob(job)
     }
 
 
     render() {
+        
         let { arrJobs } = this.props
         let { showJobs } = this.state
         let check= showJobs===true ? 'showJobs = true' : 'showJobs = fasle';
